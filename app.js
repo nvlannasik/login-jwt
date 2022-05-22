@@ -2,9 +2,21 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 require("dotenv/config");
+const bodyParser = require("body-parser");
 const routerMember = require("./routes/router");
 
-app.get("/", routerMember);
+//Midleware
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+app.use(bodyParser.json());
+app.use(express.json());
+
+//
+
+app.use("/regist", routerMember);
 
 //connect db
 mongoose.connect(process.env.DB_CONNECTION);
