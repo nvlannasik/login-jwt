@@ -9,8 +9,8 @@ const registSchema = mongoose.Schema({
   },
   password: {
     type: String,
-    minLength: 8,
-    maxLength: 1024,
+    min: 8,
+    max: 1024,
   },
   dateRegist: {
     type: Date,

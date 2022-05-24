@@ -1,9 +1,14 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-require("dotenv/config");
+const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const routerMember = require("./routes/router");
+const authRouter = require("./routes/auth");
+
+//env
+dotenv.config();
+//
 
 //Midleware
 app.use(
@@ -12,11 +17,11 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.use(express.json());
-
 //
-
+//router midleware
+app.use("/api/user", authRouter);
 app.use("/regist", routerMember);
+//
 
 //connect db
 mongoose.connect(process.env.DB_CONNECTION);
