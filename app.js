@@ -3,19 +3,13 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-const routerMember = require("./routes/router");
 const authRouter = require("./routes/auth");
-
-//env
-dotenv.config();
-//
 
 //Midleware
 app.use(bodyParser.json());
 //
 //router midleware
 app.use("/api/user", authRouter);
-app.use("/regist", routerMember);
 //
 
 //connect db
