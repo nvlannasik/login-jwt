@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 //router midleware
 app.use("/api/user", authRouter);
 //
-
+//
 //connect db
 mongoose.connect(process.env.DB_CONNECTION);
 let db = mongoose.connection;
