@@ -43,6 +43,16 @@ req:
     "password": "test",
 }
 
+res: 
+{
+    "status": "success",
+    "message": "User logged in successfully",
+    "data": {
+        "id": 1,
+        "name": "John Doe",
+        "email": "test@gmail.com"
+}
+
 
 GROUP: Product
 

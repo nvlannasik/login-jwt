@@ -8,9 +8,17 @@ router.post("/product", async (req, res) => {
     price: req.body.price,
     imageUrl: req.body.imageUrl,
   });
+  const result = {
+    message: "Product created successfully",
+    data: {
+      title: product.title,
+      price: product.price,
+      imageUrl: product.imageUrl,
+    },
+  };
   try {
-    const savedProduct = product.save();
-    res.status(200).send(product);
+    const productSaved = product.save();
+    res.status(201).send(result);
   } catch (err) {
     res.status(400).send(err);
   }
