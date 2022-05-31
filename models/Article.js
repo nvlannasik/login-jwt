@@ -1,4 +1,8 @@
 const mongoose = require("mongoose");
+autoIncrement = require("mongoose-auto-increment");
+require("dotenv");
+var connection = mongoose.createConnection(process.env.DB_CONNECTION);
+autoIncrement.initialize(connection);
 
 const ArticleScema = mongoose.Schema({
   title: {
@@ -24,4 +28,5 @@ const ArticleScema = mongoose.Schema({
   },
 });
 
+ArticleScema.plugin(autoIncrement.plugin, "Article");
 module.exports = mongoose.model("Article", ArticleScema);

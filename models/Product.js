@@ -1,4 +1,8 @@
 const mongoose = require("mongoose");
+autoIncrement = require("mongoose-auto-increment");
+require("dotenv");
+var connection = mongoose.createConnection(process.env.DB_CONNECTION);
+autoIncrement.initialize(connection);
 
 const ProductSchema = mongoose.Schema({
   title: {
@@ -8,7 +12,7 @@ const ProductSchema = mongoose.Schema({
     max: 25,
   },
   price: {
-    type: String,
+    type: Number,
     required: true,
     max: 4096,
   },
@@ -18,4 +22,5 @@ const ProductSchema = mongoose.Schema({
   },
 });
 
+ProductSchema.plugin(autoIncrement.plugin, "Product");
 module.exports = mongoose.model("Product", ProductSchema);

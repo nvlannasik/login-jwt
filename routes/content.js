@@ -1,13 +1,6 @@
 const router = require("express").Router();
-const Product = require("../models/Product");
 const Article = require("../models/Article");
 require("dotenv").config();
-
-//GET ALL
-router.get("/article", async (req, res) => {
-  const content = await Content.find();
-  res.send(content);
-});
 
 //POST article
 router.post("/article", async (req, res) => {
@@ -17,36 +10,41 @@ router.post("/article", async (req, res) => {
     author: req.body.author,
     imageUrl: req.body.imageUrl,
   });
+  const result = {
+    message: "Article created successfully",
+    data: {
+      title: content.title,
+      content: content.content,
+      author: content.author,
+      imageUrl: content.imageUrl,
+    },
+  };
   try {
     const contentSaved = content.save();
-    res.send(content);
+    res.status(201).send(result);
   } catch (err) {
     res.status(400).send(err);
   }
 });
 
-//post product
-
-router.post("/product", async (req, res) => {
-  const product = new Product({
-    title: req.body.title,
-    price: req.body.price,
-    imageUrl: req.body.imageUrl,
-  });
+//GET ALL
+router.get("/article", async (req, res) => {
   try {
-    const savedProduct = product.save();
-    res.send(product);
+    const articles = await Article.find();
+    res.status(200).json(articles);
   } catch (err) {
-    res.status(400).send(err);
+    res.status(400).json({ message: err });
   }
 });
 
-//get article
+//GET ARTICLE ID
 router.get("/article/:id", async (req, res) => {
   const article = await Article.findById(req.params.id);
-  if (!article)
+  if (!article) {
     return res.status(404).send("The article with the given ID was not found.");
-  res.send(article);
+  } else {
+    res.status(200).send(article);
+  }
 });
 
 module.exports = router;
