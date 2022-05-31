@@ -11,9 +11,7 @@ router.post("/product", async (req, res) => {
   const result = {
     message: "Product created successfully",
     data: {
-      title: product.title,
-      price: product.price,
-      imageUrl: product.imageUrl,
+      product,
     },
   };
   try {

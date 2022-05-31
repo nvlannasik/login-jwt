@@ -20,6 +20,10 @@ const ProductSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  timestamps: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 ProductSchema.plugin(autoIncrement.plugin, "Product");
