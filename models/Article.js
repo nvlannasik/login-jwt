@@ -26,6 +26,10 @@ const ArticleScema = mongoose.Schema({
     type: String,
     required: true,
   },
+  timestamps: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 ArticleScema.plugin(autoIncrement.plugin, "Article");

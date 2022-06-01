@@ -131,26 +131,26 @@ res: {
         {
             "id": 1,
             "title": "Article 1",
-            "description": "Article 1 description",
             "content": "Article 1 content",
-            "created_at": "2020-01-01 00:00:00",
-            "updated_at": "2020-01-01 00:00:00"
+            "author": "imbron",
+            "imageUrl": "https://",
+            "timestamps": "2020-01-01 00:00:00",
         },
         {
             "id": 2,
             "title": "Article 2",
-            "description": "Article 2 description",
             "content": "Article 2 content",
-            "created_at": "2020-01-01 00:00:00",
-            "updated_at": "2020-01-01 00:00:00"
+            "author": "imbron",
+            "imageUrl": "https://",
+            "timestamps": "2020-01-01 00:00:00",
         },
         {
             "id": 3,
             "title": "Article 3",
-            "description": "Article 3 description",
             "content": "Article 3 content",
-            "created_at": "2020-01-01 00:00:00",
-            "updated_at": "2020-01-01 00:00:00"
+            "author": "imbron",
+            "imageUrl": "https://",
+            "timestamps": "2020-01-01 00:00:00",
         }
     ]
 }
@@ -169,9 +169,9 @@ res:
     "data": {
         "id": 1,
         "title": "Article 1",
-        "description": "Article 1 description",
         "content": "Article 1 content",
-        "created_at": "2020-01-01 00:00:00",
-        "updated_at": "2020-01-01 00:00:00"
-    }
+        "author": "imbron",
+        "imageUrl": "https://",
+        "timestamps": "2020-01-01 00:00:00",
+    },
 }

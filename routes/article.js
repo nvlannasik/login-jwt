@@ -34,7 +34,13 @@ router.get("/article", authenticateJWT, (req, res) => {
     if (err) {
       res.status(404).send("No articles found");
     } else {
-      res.status(200).json(articles);
+      res.status(200).json({
+        status: "success",
+        message: "Article retrieved successfully",
+        data: {
+          articles,
+        },
+      });
     }
   });
 });
@@ -45,7 +51,13 @@ router.get("/article/:id", authenticateJWT, (req, res) => {
     if (err) {
       res.status(404).send("The article with the given ID was not found.");
     } else {
-      res.status(200).json(articles);
+      res.status(200).json({
+        status: "success",
+        message: "Article retrieved successfully",
+        data: {
+          articles,
+        },
+      });
     }
   });
 });
