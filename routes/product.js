@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Product = require("../models/Product");
+const authenticateJWT = require("./verifyToken");
 
 //POST product
 router.post("/product", async (req, res) => {
@@ -23,23 +24,25 @@ router.post("/product", async (req, res) => {
 });
 
 //GET ALL
-router.get("/product", async (req, res) => {
-  try {
-    const products = await Product.find();
-    res.json(products);
-  } catch (err) {
-    res.json({ message: err });
-  }
+router.get("/product", authenticateJWT, (req, res) => {
+  const product = Product.find({}, function (err, products) {
+    if (err) {
+      res.status(404).send("No product found");
+    } else {
+      res.status(200).json(products);
+    }
+  });
 });
 
-//GET product ID
-router.get("/product/:id", async (req, res) => {
-  const product = await Product.findById(req.params.id);
-  if (!product) {
-    return res.status(404).send("The product with the given ID was not found.");
-  } else {
-    res.status(200).send(product);
-  }
+//GET product ID [DONE]
+router.get("/product/:id", authenticateJWT, (req, res) => {
+  const product = Product.findById(req.params.id, function (err, products) {
+    if (err) {
+      res.status(404).send("The article with the given ID was not found.");
+    } else {
+      res.status(200).json(products);
+    }
+  });
 });
 
 module.exports = router;

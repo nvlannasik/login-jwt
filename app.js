@@ -4,11 +4,12 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const authRouter = require("./routes/auth");
-const articleRouter = require("./routes/content");
+const articleRouter = require("./routes/article");
 const productRouter = require("./routes/product");
 
 //Midleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 //
 //router midleware
 app.use("/api/user", authRouter);
