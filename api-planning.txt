@@ -12,7 +12,7 @@ Standard Status Response:
 500 - Internal Server Error --> Server Error
 
 
-GROUP: Authentication
+GROUP: USER
 
 [1] - Register
 req:
@@ -51,6 +51,8 @@ res:
         "id": 1,
         "name": "John Doe",
         "email": "test@gmail.com"
+    }
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mjk2NWI0YmZmNmMxYTgwODkyODc1MTUiLCJlbWFpbCI6ImFubmFzaWsxMkBnbWFpbC5jb20iLCJpYXQiOjE2NTQwODAyMzIsImV4cCI6MTY1NDA4NzQzMn0.7i5ksk0iNczNZqvNw96gvnShkVtvnJfJwjQVb9gofIA"
 }
 
 
@@ -110,10 +112,9 @@ res:
     "data": {
         "id": 1,
         "name": "Product 1",
-        "description": "Product 1 description",
         "price": "100.00",
-        "created_at": "2020-01-01 00:00:00",
-        "updated_at": "2020-01-01 00:00:00"
+        "imageUrl": "https://",
+        "timestamps": "2020-01-01 00:00:00",
     }
 }
 

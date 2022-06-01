@@ -29,7 +29,13 @@ router.get("/product", authenticateJWT, (req, res) => {
     if (err) {
       res.status(404).send("No product found");
     } else {
-      res.status(200).json(products);
+      res.status(200).json({
+        status: "success",
+        message: "Product retrieved successfully",
+        data: {
+          products,
+        },
+      });
     }
   });
 });
@@ -40,7 +46,13 @@ router.get("/product/:id", authenticateJWT, (req, res) => {
     if (err) {
       res.status(404).send("The article with the given ID was not found.");
     } else {
-      res.status(200).json(products);
+      res.status(200).json({
+        status: "success",
+        message: "Product retrieved successfully",
+        data: {
+          products,
+        },
+      });
     }
   });
 });
